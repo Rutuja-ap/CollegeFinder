@@ -1,80 +1,197 @@
 # CollegeFinder
 
-CollegeFinder is a full-stack college discovery platform that helps students search, compare, save and predict colleges based on entrance exam ranks.
+CollegeFinder is a full-stack college discovery platform built to help students explore, compare, and evaluate engineering colleges across India. The application provides detailed college information, college comparison tools, rank-based prediction, personalized saved colleges, authentication, and a college-specific Q&A section.
+
+---
 
 ## Features
 
-- College Search
-- College Comparison
-- College Predictor
-- Save Favourite Colleges
-- Authentication System
-- Rating Filter
-- Fees Filter
-- Responsive Design
+###  College Discovery
+- Browse and explore engineering colleges.
+- View detailed college information including:
+  - Location
+  - Fees
+  - Ratings
+  - Placement statistics
+  - Overview
 
-## Tech Stack
+###  College Comparison
+- Compare two colleges side-by-side.
+- Compare:
+  - Fees
+  - Ratings
+  - Placements
+  - Location
 
-- Next.js 15
+### College Predictor
+- Predict suitable colleges based on entrance exam rank.
+- Supports:
+  - IIT Bombay
+  - IIT Delhi
+  - COEP
+  - VJTI
+  - BITS Pilani
+  - NIT Trichy
+  - MIT Pune
+  - IIIT Hyderabad
+  - SRM University
+
+###  Saved Colleges
+- Save favorite colleges for quick access.
+- Personalized saved list for each user.
+
+###  Authentication
+- Secure signup and login system.
+- Credential-based authentication using NextAuth.
+- Password hashing using bcrypt.
+
+###  College Q&A
+- College-specific FAQ section.
+- Dropdown-based college selection.
+- Expandable questions and answers for each college.
+
+###  Responsive UI
+- Modern and mobile-friendly design.
+- Built using Tailwind CSS.
+
+---
+
+##  Tech Stack
+
+### Frontend
+- Next.js
+- React
 - TypeScript
 - Tailwind CSS
+
+### Backend
+- Next.js API Routes
 - Prisma ORM
-- PostgreSQL
-- NextAuth
 
-## Installation
+### Database
+- PostgreSQL (Neon Database)
 
-Clone the repository
+### Authentication
+- NextAuth.js
+- bcryptjs
 
-```bash
-git clone YOUR_REPO_URL
-```
+---
 
-Install dependencies
+##  Project Structure
+
+
+app/
+│
+├── login/
+├── signup/
+├── compare/
+├── predictor/
+├── saved/
+├── qa/
+├── college/[id]/
+├── api/
+│   ├── register/
+│   ├── colleges/
+│   ├── save-college/
+│   └── questions/
+│
+components/
+│
+lib/
+│   ├── prisma.ts
+│   └── auth.ts
+│
+prisma/
+│   └── schema.prisma
+
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
+
+git clone https://github.com/Rutuja-ap/collegefinder.git
+cd collegefinder
+
+
+### Install Dependencies
 
 ```bash
 npm install
 ```
 
-Configure environment variables
+### Configure Environment Variables
 
-```env
-DATABASE_URL=
-NEXTAUTH_SECRET=
-NEXTAUTH_URL=
+Create a `.env` file:
+
+
+DATABASE_URL=your_database_url
+
+NEXTAUTH_SECRET=your_secret_key
+
+NEXTAUTH_URL=http://localhost:3000
 ```
 
-Run development server
+### Generate Prisma Client
 
-```bash
+
+npx prisma generate
+
+
+### Run Development Server
+
+
 npm run dev
-```
+
 
 Open:
 
 http://localhost:3000
 
-## Project Structure
+---
 
-- Home Page
-- College Details
-- College Comparison
-- College Predictor
-- Saved Colleges
-- Authentication
-- Q&A Section
+##  Database
 
-## Future Improvements
+The application uses PostgreSQL with Prisma ORM.
 
-- AI Based College Recommendations
-- Advanced Filters
-- Admission Cutoff Analysis
-- College Reviews
+Main entities:
 
-## Author
+- User
+- College
+- SavedCollege
+- Question
+- Answer
 
-Your Name
+---
 
-## Live Demo
+##  Future Enhancements
 
-Add your Vercel deployment link here.
+- AI-based college recommendations
+- Advanced filtering and sorting
+- College reviews and ratings by students
+- Admission cutoff analysis
+- Scholarship information
+- College discussion forums
+- Placement analytics dashboard
+
+---
+
+##  Author
+
+**Rutuja Patil**
+
+---
+
+##  Live Demo
+
+Deployment Link:
+
+Add your Vercel deployment URL here
+
+
+---
+
+##  License
+
+This project is developed for educational and learning purposes.
