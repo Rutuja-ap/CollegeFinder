@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String         @id @default(cuid())
+  name      String?
+  email     String         @unique
+  password  String
+  createdAt DateTime       @default(now())
+  saved     SavedCollege[]
+}
+
+model College {
+  id         String         @id @default(cuid())
+  name       String
+  location   String
+  fees       Int
+  rating     Float
+  overview   String
+  placements String
+  image      String
+  courses    Course[]
+  questions  Question[]
+  reviews    Review[]
+  savedBy    SavedCollege[]
+}
+
+model Course {
+  id        String  @id @default(cuid())
+  name      String
+  duration  String
+  collegeId String
+  college   College @relation(fields: [collegeId], references: [id])
+}
+
+model Review {
+  id        String  @id @default(cuid())
+  username  String
+  comment   String
+  rating    Float
+  collegeId String
+  college   College @relation(fields: [collegeId], references: [id])
+}
+
+model SavedCollege {
+  id        String  @id @default(cuid())
+  userId    String
+  collegeId String
+  college   College @relation(fields: [collegeId], references: [id])
+  user      User    @relation(fields: [userId], references: [id])
+}
+
+model Question {
+  id        String   @id @default(cuid())
+  title     String
+  body      String
+  author    String
+  collegeId String
+  createdAt DateTime @default(now())
+  answers   Answer[]
+  college   College  @relation(fields: [collegeId], references: [id])
+}
+
+model Answer {
+  id         String   @id @default(cuid())
+  body       String
+  author     String
+  questionId String
+  createdAt  DateTime @default(now())
+  question   Question @relation(fields: [questionId], references: [id])
+}
