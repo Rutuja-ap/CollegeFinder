@@ -1,10 +1,12 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import CollegeList from "@/components/CollegeList";
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 
 export default async function HomePage() {
     const colleges = await prisma.college.findMany();
-
+const session = await getServerSession(authOptions);
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200">
@@ -36,9 +38,29 @@ export default async function HomePage() {
   <button className="cursor-pointer">Q&A</button>
 </Link>
 
+{session ? (
+  <>
+    
+
+    <form
+      action={async () => {
+        "use server";
+      }}
+    >
+      <Link href="/api/auth/signout">
+        <button className="cursor-pointer">
+          Logout
+        </button>
+      </Link>
+    </form>
+  </>
+) : (
   <Link href="/login">
-    <button className="cursor-pointer">Login</button>
+    <button className="cursor-pointer">
+      Login
+    </button>
   </Link>
+)}
 
 </div>
       </nav>

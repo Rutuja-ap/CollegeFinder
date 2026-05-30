@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function CollegeList({ colleges }: any) {
   const [search, setSearch] = useState("");
   const [minRating, setMinRating] = useState(0);
-  const [maxFees, setMaxFees] = useState(1000000);
+  const [maxFees, setMaxFees] = useState("");
 
   const filteredColleges = colleges.filter((college: any) => {
     const matchesSearch =
@@ -14,7 +14,9 @@ export default function CollegeList({ colleges }: any) {
       college.location.toLowerCase().includes(search.toLowerCase());
 
     const matchesRating = college.rating >= minRating;
-    const matchesFees = college.fees <= maxFees;
+
+    const matchesFees =
+      maxFees === "" || college.fees <= Number(maxFees);
 
     return matchesSearch && matchesRating && matchesFees;
   });
@@ -43,9 +45,9 @@ export default function CollegeList({ colleges }: any) {
 
           <input
             type="number"
-            placeholder="Maximum Fees"
+            placeholder="Maximum Fees (₹)"
             value={maxFees}
-            onChange={(e) => setMaxFees(Number(e.target.value))}
+            onChange={(e) => setMaxFees(e.target.value)}
             className="p-4 rounded-2xl border border-gray-300 text-black"
           />
         </div>
@@ -73,7 +75,7 @@ export default function CollegeList({ colleges }: any) {
               </p>
 
               <p className="mt-2 text-gray-700">
-                💰 ₹{college.fees}
+                💰 ₹{college.fees.toLocaleString()}
               </p>
 
               <p className="mt-2 text-yellow-600">
@@ -81,7 +83,7 @@ export default function CollegeList({ colleges }: any) {
               </p>
 
               <Link href={`/college/${college.id}`}>
-                <button className="mt-5 w-full bg-black text-white py-3 rounded-2xl">
+                <button className="mt-5 w-full bg-black text-white py-3 rounded-2xl hover:bg-gray-800 transition">
                   View Details
                 </button>
               </Link>
