@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import UnsaveButton from "@/components/UnsaveButton";
 
 export default async function SavedPage() {
 
@@ -54,6 +55,7 @@ export default async function SavedPage() {
 
             <div className="p-6">
 
+
             <h2 className="text-3xl font-bold text-gray-900">
             {item.college.name}
             </h2>
@@ -69,8 +71,9 @@ export default async function SavedPage() {
             <p className="mt-2 text-green-700 font-bold">
             ₹ {item.college.fees}
             </p>
-
+            <UnsaveButton collegeId={item.college.id} />  
             </div>
+            
 
           </div>
 

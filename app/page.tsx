@@ -3,7 +3,7 @@ import Link from "next/link";
 import CollegeList from "@/components/CollegeList";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
-
+import LogoutButton from "@/components/LogoutButton";
 export default async function HomePage() {
     const colleges = await prisma.college.findMany();
 const session = await getServerSession(authOptions);
@@ -39,24 +39,16 @@ const session = await getServerSession(authOptions);
 </Link>
 
 {session ? (
-  <>
-    
+  <div className="flex items-center gap-4">
+    <span className="text-lg font-medium">
+      Hi, {session.user?.name}
+    </span>
 
-    <form
-      action={async () => {
-        "use server";
-      }}
-    >
-      <Link href="/api/auth/signout">
-        <button className="cursor-pointer">
-          Logout
-        </button>
-      </Link>
-    </form>
-  </>
+    <LogoutButton />
+  </div>
 ) : (
   <Link href="/login">
-    <button className="cursor-pointer">
+    <button className="cursor-pointer bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition">
       Login
     </button>
   </Link>

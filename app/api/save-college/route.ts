@@ -63,3 +63,18 @@ export async function POST(req: Request) {
 
   }
 }
+
+export async function DELETE(req: Request) {
+  const session = await getServerSession(authOptions);
+  if (!session?.user?.email) {
+    return Response.json({ error: "Unauthorized" }, { status: 401 });
+  }
+  const { collegeId } = await req.json();
+  const user = await prisma.user.findUnique({ where: { email: session.user.email } });
+  if (!user) return Response.json({ error: "User not found" }, { status: 404 });
+
+  await prisma.savedCollege.deleteMany({
+    where: { userId: user.id, collegeId },
+  });
+  return Response.json({ success: true });
+}

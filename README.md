@@ -1,85 +1,116 @@
-# CollegeFinder
+# 🎓 CollegeFinder
 
-CollegeFinder is a full-stack college discovery platform built to help students explore, compare, and evaluate engineering colleges across India. The application provides detailed college information, college comparison tools, rank-based prediction, personalized saved colleges, authentication, and a college-specific Q&A section.
-
----
-
-## Features
-
-###  College Discovery
-- Browse and explore engineering colleges.
-- View detailed college information including:
-  - Location
-  - Fees
-  - Ratings
-  - Placement statistics
-  - Overview
-
-###  College Comparison
-- Compare two colleges side-by-side.
-- Compare:
-  - Fees
-  - Ratings
-  - Placements
-  - Location
-
-### College Predictor
-- Predict suitable colleges based on entrance exam rank.
-- Supports:
-  - IIT Bombay
-  - IIT Delhi
-  - COEP
-  - VJTI
-  - BITS Pilani
-  - NIT Trichy
-  - MIT Pune
-  - IIIT Hyderabad
-  - SRM University
-
-###  Saved Colleges
-- Save favorite colleges for quick access.
-- Personalized saved list for each user.
-
-###  Authentication
-- Secure signup and login system.
-- Credential-based authentication using NextAuth.
-- Password hashing using bcrypt.
-
-###  College Q&A
-- College-specific FAQ section.
-- Dropdown-based college selection.
-- Expandable questions and answers for each college.
-
-###  Responsive UI
-- Modern and mobile-friendly design.
-- Built using Tailwind CSS.
+A modern full-stack college discovery platform that helps students explore, compare, predict, and save engineering colleges across India. Built using Next.js, Prisma, PostgreSQL, and NextAuth with a responsive, user-friendly interface.
 
 ---
 
-##  Tech Stack
+## 🌐 Live Demo
+
+**Application:** https://college-finder-git-main-rutuja-adhikar-patils-projects.vercel.app/
+
+## 📂 GitHub Repository
+
+**Repository:** https://github.com/Rutuja-ap/CollegeFinder
+
+---
+
+# ✨ Features
+
+## 🔐 Authentication
+
+* Secure user registration and login
+* Credential-based authentication using NextAuth
+* Password hashing with bcrypt
+* Protected user-specific data
+
+## 🏫 College Discovery
+
+* Browse engineering colleges
+* Detailed college information
+* College overview
+* Location
+* Fee structure
+* Ratings
+* Placement statistics
+
+## ⚖️ College Comparison
+
+Compare colleges side-by-side based on:
+
+* Fees
+* Ratings
+* Placements
+* Location
+
+## 🎯 College Predictor
+
+Predict suitable colleges using entrance exam rank.
+
+Currently supports:
+
+* IIT Bombay
+* IIT Delhi
+* COEP
+* VJTI
+* BITS Pilani
+* NIT Trichy
+* MIT Pune
+* IIIT Hyderabad
+* SRM University
+
+## ❤️ Saved Colleges
+
+* Save favourite colleges
+* Personalized dashboard
+* Quick access to shortlisted colleges
+
+## ❓ College Q&A
+
+* College-specific frequently asked questions
+* Expandable answers
+* Easy navigation
+
+## 📱 Responsive Design
+
+* Mobile-friendly UI
+* Tablet support
+* Desktop optimized
+* Built with Tailwind CSS
+
+---
+
+# 🛠 Tech Stack
 
 ### Frontend
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
 
 ### Backend
-- Next.js API Routes
-- Prisma ORM
+
+* Next.js API Routes
+* Prisma ORM
 
 ### Database
-- PostgreSQL (Neon Database)
+
+* PostgreSQL (Neon)
 
 ### Authentication
-- NextAuth.js
-- bcryptjs
+
+* NextAuth.js
+* bcryptjs
+
+### Deployment
+
+* Vercel
 
 ---
 
-##  Project Structure
+# 📂 Project Structure
 
-
+```text
 app/
 │
 ├── login/
@@ -89,6 +120,7 @@ app/
 ├── saved/
 ├── qa/
 ├── college/[id]/
+│
 ├── api/
 │   ├── register/
 │   ├── colleges/
@@ -96,102 +128,149 @@ app/
 │   └── questions/
 │
 components/
-│
 lib/
-│   ├── prisma.ts
-│   └── auth.ts
-│
 prisma/
-│   └── schema.prisma
-
+```
 
 ---
 
-## ⚙️ Installation
+# ⚙️ Installation
 
-### Clone Repository
+## Clone Repository
 
-git clone https://github.com/Rutuja-ap/collegefinder.git
-cd collegefinder
+```bash
+git clone https://github.com/Rutuja-ap/CollegeFinder.git
+cd CollegeFinder
+```
 
-
-### Install Dependencies
+## Install Dependencies
 
 ```bash
 npm install
 ```
 
-### Configure Environment Variables
+## Configure Environment Variables
 
-Create a `.env` file:
+Create a `.env` file.
 
+| Variable        | Description             |
+| --------------- | ----------------------- |
+| DATABASE_URL    | PostgreSQL Database URL |
+| NEXTAUTH_SECRET | NextAuth Secret Key     |
+| NEXTAUTH_URL    | http://localhost:3000   |
 
+Example:
+
+```env
 DATABASE_URL=your_database_url
-
-NEXTAUTH_SECRET=your_secret_key
-
+NEXTAUTH_SECRET=your_secret
 NEXTAUTH_URL=http://localhost:3000
 ```
 
-### Generate Prisma Client
+## Generate Prisma Client
 
-
+```bash
 npx prisma generate
+```
 
+## Run the Project
 
-### Run Development Server
-
-
+```bash
 npm run dev
+```
 
+Visit:
 
-Open:
-
+```
 http://localhost:3000
+```
 
 ---
 
-##  Database
+# 🗄 Database
 
 The application uses PostgreSQL with Prisma ORM.
 
-Main entities:
+### Database Models
 
-- User
-- College
-- SavedCollege
-- Question
-- Answer
-
----
-
-##  Future Enhancements
-
-- AI-based college recommendations
-- Advanced filtering and sorting
-- College reviews and ratings by students
-- Admission cutoff analysis
-- Scholarship information
-- College discussion forums
-- Placement analytics dashboard
+* User
+* College
+* SavedCollege
+* Question
+* Answer
 
 ---
 
-##  Author
+
+
+
+# 📸 Application Preview
+
+Explore the major features of **CollegeFinder** through the screenshots below.
+
+---
+
+## 🏠 Home Page
+
+![Home Page](screenshots/Home_page.png)
+
+---
+
+## 🔐 User Authentication
+
+| Login | Sign Up |
+| :----: | :-----: |
+| ![Login](screenshots/Login_Page.png) | ![Sign Up](screenshots/Sign_Up_Page.png) |
+
+---
+
+## 🎓 Core Features
+
+| College Details | College Comparison |
+| :-------------: | :----------------: |
+| ![College Details](screenshots/Details_Page.png) | ![College Comparison](screenshots/compare college.png) |
+
+| College Predictor | Saved Colleges |
+| :---------------: | :------------: |
+| ![College Predictor](screenshots/predictor_page.png) | ![Saved Colleges](screenshots/Saved_Page.png) |
+
+---
+
+## ❓ College Q&A
+
+![College Q&A](screenshots/Q&A_Page.png)
+
+---
+
+# 🚀 Future Improvements
+
+* AI-powered college recommendations
+* Advanced filtering and search
+* Student reviews & ratings
+* Admission cutoff analysis
+* Scholarship recommendations
+* Placement analytics dashboard
+
+---
+
+# 👩‍💻 Author
 
 **Rutuja Patil**
 
----
+GitHub: https://github.com/Rutuja-ap
 
-##  Live Demo
-
-Deployment Link:
-
-Add your Vercel deployment URL here
-
+LinkedIn: https://www.linkedin.com/in/rutuja-patil-603a5a293/
 
 ---
 
-##  License
+# 📄 License
 
-This project is developed for educational and learning purposes.
+This project is licensed under the MIT License.
+
+See the **LICENSE** file for details.
+
+---
+
+# 🙏 Acknowledgements
+
+This project was built as part of the **Digital Heroes Full Stack Developer Trial** and showcases a production-ready full-stack application using modern web technologies.
