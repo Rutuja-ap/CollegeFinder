@@ -39,7 +39,8 @@ export async function POST(req: Request) {
       },
     });
 
-    return Response.json(user);
+    const { password: _pw, ...safeUser } = user;
+    return Response.json(safeUser);
 
   } catch (error) {
 
