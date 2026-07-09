@@ -16,7 +16,7 @@ const session = await getServerSession(authOptions);
           CollegeFinder
         </h1>
 
-        <div className="flex gap-6 text-lg">
+        <div className="flex items-center gap-6 text-lg">
 
   <Link href="/">
     <button className="cursor-pointer">Home</button>
@@ -40,7 +40,7 @@ const session = await getServerSession(authOptions);
 
 {session ? (
   <div className="flex items-center gap-4">
-    <span className="text-lg font-medium">
+    <span className="text-lg font-medium whitespace-nowrap">
       Hi, {session.user?.name}
     </span>
 

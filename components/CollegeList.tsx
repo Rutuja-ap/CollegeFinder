@@ -75,7 +75,7 @@ export default function CollegeList({ colleges }: any) {
               </p>
 
               <p className="mt-2 text-gray-700">
-                💰 ₹{college.fees.toLocaleString()}
+                💰 ₹{college.fees.toLocaleString("en-IN")}
               </p>
 
               <p className="mt-2 text-yellow-600">
